@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Encryption</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <p>This is a Caesar cipher website where you can use the ceaser cipher.
+       The following message is a quote that you need to de-code. below is a cipher alphabet
+     use it to de-cipher what the message says. </p>
+    <ul>
+     <li>  'a': 'v'</li>
+     <li>  'b': 'j'</li>
+     <li>  'c': 'w'</li>
+     <li>  'd': 'f'</li>
+     <li>  'e': 'o'</li>
+     <li>  'f': 'd'</li>
+     <li>  'g': 'z'</li>
+     <li>  'h': 'n'</li>
+     <li>  'i': 'm'</li>
+     <li>  'j': 'b'</li>
+     <li>  'k': 't'</li>
+     <li>  'l': 's'</li>
+     <li>  'm': 'i'</li>
+     <li>  'n': 'h'</li>
+     <li>  'o': 'e'</li>
+     <li>  'p': 'y'</li>
+     <li>  'q': 'r'</li>
+     <li>  'r': 'q'</li>
+     <li>  's': 'l'</li>
+     <li>  't': 'k'</li>
+     <li>  'u': 'x'</li>
+     <li>  'v': 'a'</li>
+     <li>  'w': 'c'</li>
+     <li>  'x': 'u'</li>
+     <li>  'y': 'p'</li>
+     <li>  'z': 'g'</li>
+
+    </ul>
+    <form action="">
+      <label>Type your own secret message</label>
+      <textarea id='unencoded'></textarea>
+      <button type="button" id="encode"> encode </button>
+    </form>
+    <script>
+      var alphabetCipher = {
+        'a': 'v',
+        'b': 'j',
+        'c': 'w',
+        'd': 'f',
+        'e': 'o',
+        'f': 'd',
+        'g': 'z',
+        'h': 'n',
+        'i': 'm',
+        'j': 'b',
+        'k': 't',
+        'l': 's',
+        'm': 'i',
+        'n': 'h',
+        'o': 'e',
+        'p': 'y',
+        'q': 'r',
+        'r': 'q',
+        's': 'l',
+        't': 'k',
+        'u': 'x',
+        'v': 'a',
+        'w': 'c',
+        'x': 'u',
+        'y': 'p',
+        'z': 'g',
+        ' ': ' '
+      };
+
+      var testString = "not all those who wander are lost";
+      var encryptedString = "";
+
+      function encode(textToEncode) {
+
+        for (i = 0; i < textToEncode.length; i++) {
+          encryptedString += alphabetCipher[textToEncode[i]];
+        }
+
+        return encryptedString;
+      }
+
+      $('#encode').on('click', function() {
+        var unencodedValue =  $("#unencoded").val();
+        var encoded = '<p>' + encode(unencodedValue) + '</p>';
+        $("body").append(encoded);
+      });
+    </script>
+  </body>
+</html>
