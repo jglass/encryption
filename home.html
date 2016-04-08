@@ -6,59 +6,97 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
 
   <body>
+  <div class="container">
     <div><p>This is a Caesar cipher website where you can use the ceaser cipher.
-       The following message is a quote that you need to de-code. below is a cipher alphabet
-     use it to de-cipher what the message says. </p></div>
-    <div>
-        <ul>
-         <li>  'a': 'v'</li>
-         <li>  'b': 'j'</li>
-         <li>  'c': 'w'</li>
-         <li>  'd': 'f'</li>
-         <li>  'e': 'o'</li>
-         <li>  'f': 'd'</li>
-         <li>  'g': 'z'</li>
-         <li>  'h': 'n'</li>
-         <li>  'i': 'm'</li>
-         <li>  'j': 'b'</li>
-         <li>  'k': 't'</li>
-         <li>  'l': 's'</li>
-         <li>  'm': 'i'</li>
-         <li>  'n': 'h'</li>
-         <li>  'o': 'e'</li>
-         <li>  'p': 'y'</li>
-         <li>  'q': 'r'</li>
-         <li>  'r': 'q'</li>
-         <li>  's': 'l'</li>
-         <li>  't': 'k'</li>
-         <li>  'u': 'x'</li>
-         <li>  'v': 'a'</li>
-         <li>  'w': 'c'</li>
-         <li>  'x': 'u'</li>
-         <li>  'y': 'p'</li>
-         <li>  'z': 'g'</li>
 
-        </ul>
+      </p></div>
+    <div>
+        <table class="table">
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+            <td>d</td>
+            <td>e</td>
+            <td>f</td>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+            <td>k</td>
+            <td>l</td>
+            <td>m</td>
+            <td>n</td>
+            <td>o</td>
+            <td>p</td>
+            <td>q</td>
+            <td>r</td>
+            <td>s</td>
+            <td>t</td>
+            <td>u</td>
+            <td>v</td>
+            <td>w</td>
+            <td>x</td>
+            <td>y</td>
+            <td>z</td>
+         </tr>
+         <tr>
+          <td>v</td>
+          <td>j</td>
+          <td>w</td>
+          <td>f</td>
+          <td>o</td>
+          <td>d</td>
+          <td>z</td>
+          <td>n</td>
+          <td>m</td>
+          <td>b</td>
+          <td>t</td>
+          <td>s</td>
+          <td>i</td>
+          <td>h</td>
+          <td>e</td>
+          <td>y</td>
+          <td>r</td>
+          <td>q</td>
+          <td>l</td>
+          <td>k</td>
+          <td>x</td>
+          <td>a</td>
+          <td>c</td>
+          <td>u</td>
+          <td>p</td>
+          <td>g</td>
+        </tr>
+     </table>
       </div>
       <div>
     <form action="">
-      <label>Type your own secret message</label>
-      <textarea id='unencoded'></textarea>
-      <button type="button" id="encode"> encode </button>
+      <p>
+        <label>Type your own secret message</label>
+      </p>
+      <p>
+        <textarea id='unencoded'></textarea>
+        <button type="button" id="encode" class="btn"> encode </button>
+      </p>
     </form>
   </div>
     <div>
     <form action="">
+      <p>
       <label>decode your secret message</label>
-      <textarea id='encoded'></textarea>
-      <button type="button" id="decode"> decode </button>
+      </p>
+      <p>
+        <textarea id='encoded'></textarea>
+        <button type="button" id="decode" class="btn"> decode </button>
+      </p>
     </form>
   </div>
+</div>
     <script>
       var alphabetCipher = {
         'a': 'v',
