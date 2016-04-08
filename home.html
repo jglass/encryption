@@ -4,46 +4,61 @@
     <title>Encryption</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
 
   <body>
-    <p>This is a Caesar cipher website where you can use the ceaser cipher.
+    <div><p>This is a Caesar cipher website where you can use the ceaser cipher.
        The following message is a quote that you need to de-code. below is a cipher alphabet
-     use it to de-cipher what the message says. </p>
-    <ul>
-     <li>  'a': 'v'</li>
-     <li>  'b': 'j'</li>
-     <li>  'c': 'w'</li>
-     <li>  'd': 'f'</li>
-     <li>  'e': 'o'</li>
-     <li>  'f': 'd'</li>
-     <li>  'g': 'z'</li>
-     <li>  'h': 'n'</li>
-     <li>  'i': 'm'</li>
-     <li>  'j': 'b'</li>
-     <li>  'k': 't'</li>
-     <li>  'l': 's'</li>
-     <li>  'm': 'i'</li>
-     <li>  'n': 'h'</li>
-     <li>  'o': 'e'</li>
-     <li>  'p': 'y'</li>
-     <li>  'q': 'r'</li>
-     <li>  'r': 'q'</li>
-     <li>  's': 'l'</li>
-     <li>  't': 'k'</li>
-     <li>  'u': 'x'</li>
-     <li>  'v': 'a'</li>
-     <li>  'w': 'c'</li>
-     <li>  'x': 'u'</li>
-     <li>  'y': 'p'</li>
-     <li>  'z': 'g'</li>
+     use it to de-cipher what the message says. </p></div>
+    <div>
+        <ul>
+         <li>  'a': 'v'</li>
+         <li>  'b': 'j'</li>
+         <li>  'c': 'w'</li>
+         <li>  'd': 'f'</li>
+         <li>  'e': 'o'</li>
+         <li>  'f': 'd'</li>
+         <li>  'g': 'z'</li>
+         <li>  'h': 'n'</li>
+         <li>  'i': 'm'</li>
+         <li>  'j': 'b'</li>
+         <li>  'k': 't'</li>
+         <li>  'l': 's'</li>
+         <li>  'm': 'i'</li>
+         <li>  'n': 'h'</li>
+         <li>  'o': 'e'</li>
+         <li>  'p': 'y'</li>
+         <li>  'q': 'r'</li>
+         <li>  'r': 'q'</li>
+         <li>  's': 'l'</li>
+         <li>  't': 'k'</li>
+         <li>  'u': 'x'</li>
+         <li>  'v': 'a'</li>
+         <li>  'w': 'c'</li>
+         <li>  'x': 'u'</li>
+         <li>  'y': 'p'</li>
+         <li>  'z': 'g'</li>
 
-    </ul>
+        </ul>
+      </div>
+      <div>
     <form action="">
       <label>Type your own secret message</label>
       <textarea id='unencoded'></textarea>
       <button type="button" id="encode"> encode </button>
     </form>
+  </div>
+    <div>
+    <form action="">
+      <label>decode your secret message</label>
+      <textarea id='encoded'></textarea>
+      <button type="button" id="decode"> decode </button>
+    </form>
+  </div>
     <script>
       var alphabetCipher = {
         'a': 'v',
@@ -76,9 +91,10 @@
       };
 
       var testString = "not all those who wander are lost";
-      var encryptedString = "";
+      var encryptedString, decryptedString;
 
       function encode(textToEncode) {
+        encryptedString = "";
 
         for (i = 0; i < textToEncode.length; i++) {
           encryptedString += alphabetCipher[textToEncode[i]];
@@ -87,10 +103,27 @@
         return encryptedString;
       }
 
+      function decode(textToDecode) {
+        decryptedString = "";
+
+        for (i = 0; i < textToDecode.length; i++) {
+          decryptedString += alphabetCipher[textToDecode[i]];
+        }
+
+        return decryptedString;
+      }
+
+
       $('#encode').on('click', function() {
         var unencodedValue =  $("#unencoded").val();
         var encoded = '<p>' + encode(unencodedValue) + '</p>';
         $("body").append(encoded);
+      });
+
+      $('#decode').on('click', function() {
+        var encodedValue =  $("#encoded").val();
+        var unencodedValue = '<p>' + encode(encodedValue) + '</p>';
+        $("body").append(unencodedValue);
       });
     </script>
   </body>
